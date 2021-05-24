@@ -1,17 +1,20 @@
 // import { useAppContext } from '../../context/appContext';
 import {useState} from 'react';
-import {Link} from 'react-router-dom';
+import { Link, useHistory} from 'react-router-dom';
 
 import Buttons from '../../components/Buttons/buttons';
 import Inputs from '../../components/Inputs/inputs';
 import NavBar from '../../components/Header/navbar';
 
+
 function Login() {
     const [values, setValues] = useState({});
+    const appHistory = useHistory();
+    // const {toPage} = useAppContext();
 
     function updateValues(e) {
         setValues({ ...values, [e.target.name]: [e.target.value] });
-        console.log(setValues);
+        // console.log(setValues);
     }
 
     function submit(e) {
@@ -24,24 +27,26 @@ function Login() {
             body: jsonObj,
             headers: { 'Content-Type': 'application/json' }
         })
-            .then(res => res.json())
-            .then(res => {
-                if (res.success) {
-                    // setshowLoader(false);
-                    // history.push("/dashboarddefault");
+        .then((response) => response.json())
+        .then(response => {
+                if (response.success) {
+
+                    appHistory.push("/dashboard");
                     alert("Signup Successful");
-                } else if (res.failure) {
-                    // display
+
+                } else if (response.failure) {
+            
                     alert("Wrong Username or Password");
-                    // setshowLoader(false);
-                } else if (res.goaway) {
-                    alert("User Doesn't Exist");
-                    // setshowLoader(false);
+                
+                } else if (response.goaway) {
+
+                    alert("Sorry user doesn't exist");
+
                 }
             },
                 (err) => console.log(err)
              );
-    };
+        };
     
     return(
         <div className="bg-1">
