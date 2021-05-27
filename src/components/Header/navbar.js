@@ -6,7 +6,7 @@ function NavBar() {
             <NavLink to="/" className="w3-bar-item w3-ripple logo">Artfiva</NavLink>
             <nav class="w3-right">
                 <NavLink to="/login" className="w3-bar-item w3-button w3-ripple w3-round-large">Login</NavLink>
-                <NavLink to="/Signup" className="w3-bar-item w3-button w3-ripple w3-round-large w3-flat-amethyst">Sign up</NavLink>
+                <NavLink to="/Signup" className="w3-bar-item w3-button w3-ripple w3-round-large w3-flat-wisteria">Sign up</NavLink>
             </nav>
         </div>
     );
