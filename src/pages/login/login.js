@@ -1,6 +1,6 @@
 // import { useAppContext } from '../../context/appContext';
 import {useState} from 'react';
-import { Link} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 
 import Buttons from '../../components/Buttons/buttons';
 import Inputs from '../../components/Inputs/inputs';
@@ -9,58 +9,45 @@ import NavBar from '../../components/Header/navbar';
 
 function Login() {
     const [values, setValues] = useState({});
-    // const [empty, setEmpty] = useState();
-    // const appHistory = useHistory();
+    const appHistory = useHistory();
     // const {toPage} = useAppContext();
 
     function updateValues(e) {
-        setValues({ ...values, [e.target.name]: [e.target.value] });
-        // console.log(setValues);
-    }
-
-    function setEmpty() {
-        setValues({});
+        setValues({ ...values, [e.target.name]: e.target.value });
     }
 
     function submit(e) {
         e.preventDefault();
-        setEmpty();
 
-      
-        // const logObj = { values };
-        // const jsonObj = JSON.stringify(logObj);
+            fetch("http://localhost:5000/api/v1/login",{
+                method: 'POST',
+                body: JSON.stringify(values),
+                headers: {'Content-Type': 'application/json'}
+            })
+            .then((response) => response.json())
+            .then((response) => {
+                console.log(response);
 
-        // fetch('http://localhost:5000/api/v1/login', {
-        //     method: 'POST',
-        //     body: jsonObj,
-        //     headers: { 'Content-Type': 'application/json' }
-        // })
-        // .then((response) => response.json())
-        // .then(response => {
-        //         if (response.success) {
+                    if (response.status === 1){
+                        alert(response.message);
+                        appHistory.push('/dashboard');
 
-        //             appHistory.push("/dashboard");
-        //             alert("Signup Successful");
+                    } else if (response.status === 0){
+                        alert(response.message);
 
-        //         } else if (response.failure) {
-            
-        //             alert("Wrong Username or Password");
-                
-        //         } else if (response.goaway) {
-
-        //             alert("Sorry user doesn't exist");
-
-        //         }
-        //     },
-        //         (err) => console.log(err)
-        //      );
-        };
+                    } else {
+                        alert(response.message);
+                    }
+                }
+            )
+            .catch(error => console.log(error));
+    };
     
     return(
         <div className="bg-2">
             <NavBar/>
             <div className="w3-display-middle">
-                <form className="w3-container w3-card-2 w3-round-large w3-light-grey w3-padding w3-animate-bottom form-size">
+                <form className="w3-container w3-card-2 w3-round-large w3-light-grey w3-padding form-size">
                     <header className="w3-container w3-padding"><h1 className="w3-center w3-margin">Welcome back!</h1></header>
 
                     <div className="w3-container">
