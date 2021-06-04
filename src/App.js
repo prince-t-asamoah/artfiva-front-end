@@ -1,6 +1,6 @@
-import AppRouter from '././routers/AppRouter';
+import AppRouter from './router';
 
-import './css/index.css';
+import './stylesheets/_index.css';
 // import Dashboard from './pages/Dashboard/dashboard';
 
 function App() {

@@ -1,5 +1,5 @@
 
-function Buttons({text, classname,onclick}) {
+function Button({text, classname,onclick}) {
     return(
         <>
             <button 
@@ -11,4 +11,4 @@ function Buttons({text, classname,onclick}) {
     );
 };
 
-export default Buttons;
+export default Button;

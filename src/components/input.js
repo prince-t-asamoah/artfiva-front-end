@@ -1,5 +1,5 @@
 
-function Inputs({ style, type, placeholder, name, value, onchange, classname, arialabel}) {
+function Input({ style, type, placeholder, name, value, onchange, classname, arialabel}) {
     return(
         <div style={style}>
             <input
@@ -16,4 +16,4 @@ function Inputs({ style, type, placeholder, name, value, onchange, classname, ar
     );
 };
 
-export default Inputs;
+export default Input;

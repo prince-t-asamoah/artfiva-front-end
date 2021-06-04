@@ -12,13 +12,13 @@ body {
 
 .bg-1 {
     height: 100vh;
-    background: url(../img/bg-1.svg) no-repeat;
+    background: url(../images/bg-1.svg) no-repeat;
     background-size: cover;
 }
 
 .bg-2 {
     height: 100vh;
-    background: url(../img/bg-2.svg) no-repeat;
+    background: url(../images/bg-2.svg) no-repeat;
     background-size: cover;
 }
 
