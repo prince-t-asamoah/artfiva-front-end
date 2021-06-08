@@ -38,23 +38,23 @@ function Signup() {
     }
 
     return(
-        <div className="bg-2">
+        <div className="bg-2 indigo">
             <NavBar />
-            <div className="w3-display-middle">
-                <form className="w3-container w3-card-2 w3-round-large w3-light-grey w3-padding form-size">
-                    <header className="w3-container w3-padding"><h1 className="w3-center w3-margin">Sign Up</h1></header>
+            <div className="display-middle">
+                <form className="container card-2 round-large light-grey padding form-size">
+                    <header className="container padding"><h1 className="center margin">Sign Up</h1></header>
 
-                    <div className="w3-container">
-                        <Input type="text" placeholder="Enter full name" name="fullname" classname="w3-input w3-round-large w3-margin-bottom w3-padding" onchange={updateValues} />
-                        <Input type="email" placeholder="Enter email" name="email" classname="w3-input w3-round-large w3-margin-bottom w3-padding" onchange={updateValues} />
-                        <Input type="password" placeholder="Enter password" name="password" classname="w3-input w3-round-large w3-margin-bottom w3-padding" onchange={updateValues} />
-                        <Input type="password" placeholder="Confirm password" name="cpassword" classname="w3-input w3-round-large w3-margin-bottom w3-padding" onchange={updateValues} />
-                        <Button text="Join Now!" classname="w3-button w3-block w3-round-large w3-flat-wisteria w3-margin-top w3-padding" onclick={submit} />
+                    <div className="container">
+                        <Input type="text" text="Enter full name" name="fullname" classname="input" change={updateValues}/>
+                        <Input type="email" text="Enter email" name="email" classname="input" change={updateValues}/>
+                        <Input type="password" text="Enter password" name="password" classname="input" change={updateValues}/>
+                        <Input type="password" text="Confirm password" name="cpassword" classname="input" change={updateValues}/>
+                        <Button classname="block margin-top padding" click={submit}>Create account</Button>
                     </div>
 
-                    <footer className="w3-container w3-center">
-                        <p className="w3-small">Already a member? <Link to="/login">Login</Link></p>
-                        <p className="w3-tiny">By clicking the button above, you agree to our <Link to="/login">Terms of Service</Link> and <Link>Privacy Policy</Link>.</p>
+                    <footer className="container center">
+                        <p className="small">Already a member? <Link to="/login">Login</Link></p>
+                        <p className="tiny">By clicking the button above, you agree to our <Link to="/login">Terms of Service</Link> and <Link>Privacy Policy</Link>.</p>
                     </footer>
                 </form>
             </div>

@@ -18,8 +18,8 @@ body {
 
 .bg-2 {
     height: 100vh;
-    background: url(../images/bg-2.svg) no-repeat;
-    background-size: cover;
+    /* background: url(../images/bg-2.svg) no-repeat;
+    background-size: cover; */
 }
 
 .hero-section {

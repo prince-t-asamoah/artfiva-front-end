@@ -1,15 +1,14 @@
 
-function Input({ style, type, placeholder, name, value, onchange, classname, arialabel}) {
+function Input({style,type,name,text,value,classname,change}) {
     return(
         <div style={style}>
             <input
                 type={type}
-                placeholder={placeholder}
                 name={name}
+                placeholder={text}
                 value={value}
-                className={classname}
-                onChange={onchange}
-                aria-label={arialabel}
+                className={`margin-bottom padding round-large ${classname}`}
+                onChange={change}
                 required                  
             />
         </div>

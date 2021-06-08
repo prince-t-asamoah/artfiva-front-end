@@ -7,12 +7,7 @@ import samePass from './auth';
 const appContext = createContext();
 
 const AppProvider = ({children}) => {
-    const history = useHistory();
-
-    function toHistory(url) {
-        history.push(url);
-    }
-
+    const toHistory = useHistory();
         
     return(
         <appContext.Provider value={{samePass, toFetch, toHistory}}>

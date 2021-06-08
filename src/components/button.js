@@ -1,13 +1,18 @@
 
-function Button({text, classname,onclick}) {
+function Button({click,classname,children,size}) {
     return(
-        <>
-            <button 
-                onClick={onclick}
-                className={classname}
-                > {text}
-            </button>
-        </>
+        <button 
+            onClick={click}
+            className= {
+                `button
+                 round-large
+                 indigo
+                 ${size}
+                 ${classname}`
+            }
+        >
+            {children}
+        </button>
     );
 };
 
