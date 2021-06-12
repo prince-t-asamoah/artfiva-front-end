@@ -2,7 +2,7 @@ import {useState} from 'react';
 import {useAppContext} from '../context/_index';
 import {Link, useHistory} from 'react-router-dom';
 
-import {Button, Input, NavBar} from '../components/_index';
+import {Button, Icon, Input, TopBar} from '../components/_index';
 
 function Signup() {
     const [values, setValues] = useState({});
@@ -38,23 +38,49 @@ function Signup() {
     }
 
     return(
-        <div className="bg-2 indigo">
-            <NavBar />
-            <div className="display-middle">
-                <form className="container card-2 round-large light-grey padding form-size">
-                    <header className="container padding"><h1 className="center margin">Sign Up</h1></header>
+        <div className="bgIndigo" style={{height:'100vh'}}>
+            <TopBar>
+                <div className="floatR margR">
+                    <span className="margR">Already have an account?</span>
+                    <Button classname="border" click={()=>history.push("/login")}>Login</Button>
+                </div>
+            </TopBar>
+            {/* <NavBar /> */}
+            <div className="disMid">
+                <form className="box card4 roundLg bgLightGrey formSize">
+                    <header className="box padLg">
+                        <h1 className="center margin">Sign Up</h1>
+                    </header>
 
-                    <div className="container">
-                        <Input type="text" text="Enter full name" name="fullname" classname="input" change={updateValues}/>
-                        <Input type="email" text="Enter email" name="email" classname="input" change={updateValues}/>
-                        <Input type="password" text="Enter password" name="password" classname="input" change={updateValues}/>
-                        <Input type="password" text="Confirm password" name="cpassword" classname="input" change={updateValues}/>
-                        <Button classname="block margin-top padding" click={submit}>Create account</Button>
+                    <div className="box padLg">
+                        <div className="inputBox border margB round">
+                            <Icon type="user" classname=""/>
+                            <Input type="text" text="Enter full name" name="fullname" classname="input bord0" change={updateValues}/>
+                        </div>
+
+                        <div className="inputBox border margB round">
+                            <Icon type="envelope" classname=""/>
+                            <Input type="email" text="Enter your email" name="email" classname="input bord0" change={updateValues}/>
+                        </div>
+
+                        <div className="inputBox border margB round">
+                            <Icon type="lock" classname=""/>
+                            <Input type="password" text="Enter password" name="password" classname="input bord0" change={updateValues}/>
+                        </div>
+
+                        <div className="inputBox border margB round">
+                            <Icon type="lock" classname=""/>
+                            <Input type="password" text="Confirm password" name="cpassword" classname="input bord0" change={updateValues}/>
+                        </div>
+
+                        <Button classname="disBlk margT padLg margB" click={submit}><b>Create account</b></Button>
                     </div>
 
-                    <footer className="container center">
-                        <p className="small">Already a member? <Link to="/login">Login</Link></p>
-                        <p className="tiny">By clicking the button above, you agree to our <Link to="/login">Terms of Service</Link> and <Link>Privacy Policy</Link>.</p>
+                    <footer className="center margT bordT padMed">
+                        <span className="txtSm padMed txtIndigo">
+                            By clicking the button above, you agree to our <Link to="#">Terms of Service </Link>
+                            and <Link to="#">Privacy Policy</Link>.
+                        </span>
                     </footer>
                 </form>
             </div>

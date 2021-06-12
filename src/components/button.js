@@ -1,13 +1,13 @@
 
-function Button({click,classname,children,size}) {
+function Button({click,classname,children}) {
     return(
         <button 
             onClick={click}
             className= {
                 `button
-                 round-large
-                 indigo
-                 ${size}
+                 round
+                 bgIndigo
+                 ripple
                  ${classname}`
             }
         >

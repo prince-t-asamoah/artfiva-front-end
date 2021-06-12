@@ -1,10 +1,12 @@
 import {NavLink} from 'react-router-dom';
 
-function Logo() {
+function Logo({classname}) {
     return(
-        <span>
-            Artfiva
-        </span>
+        <NavLink to="/">
+            <span className={`${classname} padMed`}>
+                Artfiva
+            </span>
+        </NavLink>
     )
 }
 

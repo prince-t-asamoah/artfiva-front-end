@@ -26,12 +26,27 @@ body {
     margin-top: 150px;
 }
 
-.form-size {
+.formSize {
     width: 500px;
 }
 
 .f-w {
     font-weight: bolder;
+}
+
+.inputBox {
+    display: flex;
+}
+
+.input:focus{
+    border: none;
+}
+.txtLink {
+    text-decoration: none;
+    display: inline;
+}
+.txtLink:hover {
+    text-decoration: underline;
 }
 
 
